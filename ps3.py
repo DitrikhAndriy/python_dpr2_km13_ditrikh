@@ -368,7 +368,7 @@ def play_game(word_list):
                 if len(letter_replace) != 1:
                     print("You have entered more than one letter. Please try again.")
                     continue
-                elif letter_replace.isalpha():
+                elif not letter_replace.isalpha():
                     print("You did not enter a letter. Please try again.")
                     continue
                 else:
