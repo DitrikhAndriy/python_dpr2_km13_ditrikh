@@ -90,7 +90,7 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-    maximum = max(1, 7*len(word) - 3*(n-len(word)))
+    maximum = max(1, HAND_SIZE*len(word) - 3*(n-len(word)))
     total = 0
     for i in word.lower():
         total += SCRABBLE_LETTER_VALUES[i]
@@ -176,6 +176,14 @@ def update_hand(hand, word):
             if update_hand[i] <= 0:
                 del update_hand[i]
     return update_hand
+
+    new_hand = hand.copy()
+    word_list = [i for i in word]
+    for i in word_list:
+        if i in update_hand:
+            update_hand[i] -= 1
+            if update_hand[i] <= 0:
+                del update_hand[i]
     
 #
 # Problem #3: Test word validity
