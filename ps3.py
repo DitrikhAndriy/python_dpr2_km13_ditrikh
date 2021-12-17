@@ -176,14 +176,6 @@ def update_hand(hand, word):
             if update_hand[i] <= 0:
                 del update_hand[i]
     return update_hand
-
-    new_hand = hand.copy()
-    word_list = [i for i in word]
-    for i in word_list:
-        if i in update_hand:
-            update_hand[i] -= 1
-            if update_hand[i] <= 0:
-                del update_hand[i]
     
 #
 # Problem #3: Test word validity
